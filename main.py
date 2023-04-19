@@ -56,7 +56,12 @@ if args.mode == "song":
     search_element_album.set_entity_type(ItunesEntityTypes.SONG)
     search_result_album = search_eng.execute(search_element_album)
 
-    storage.save(search_result_album["results"])
+    prepared_results = []
+    for result in search_result_album["results"]:
+        if (album_name or album_name_reserved).lower() in result["collectionName"].lower():
+            prepared_results.append(result)
+
+    storage.save(prepared_results)
 elif args.mode == "chord":
     file_storage = FileDataStorage()
 
