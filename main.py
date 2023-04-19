@@ -50,7 +50,7 @@ if args.mode == "song":
                 album_name = result["collectionName"]
 
     if not (album_name or album_name_reserved):
-        raise ValueError("Album didn`t found")
+        raise ValueError("Album not found")
     search_element_album = ItunesSearchElement(args.author, album_name or album_name_reserved)
     search_element_album.set_media_type(ItunesMediaTypes.MUSIC)
     search_element_album.set_entity_type(ItunesEntityTypes.SONG)
