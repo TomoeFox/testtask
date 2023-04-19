@@ -31,11 +31,10 @@ class ChordifySearchEngine(SearchEngineInterface):
     def handle_result(self, result: str):
         soup = bs4.BeautifulSoup(result, features="html.parser")
         result = []
-        x = 0
         for chord in soup.findAll(class_="chord"):
 
             if "data-i" not in chord.attrs:
-                break
+                continue
             line_id = chord.attrs["data-i"]
             label = chord.find(class_="chord-label")
             chord_type = label.attrs["class"][-1].rsplit("-")[-1]
