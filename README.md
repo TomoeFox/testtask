@@ -2,16 +2,16 @@
 
 ## How to run steps:
 
-  ### sudo apt install pipenv
+  ### 1. sudo apt install pipenv
 
-  ### Open project dir
+  ### 2. Open project dir (cd testtask)
 
-  ### pipenv shell
+  ### 3. pipenv shell
 
-  ### pipenv sync
+  ### 4. pipenv sync
 
-  ### cp .env.example .env
+  ### 5. cp .env.example .env
 
-  ### Open .env end add real pathes to the files
+  ### 6. Open .env end add real pathes to the files
 
-  ### pipenv run python main.py --help
+  ### 7. pipenv run python main.py --help
