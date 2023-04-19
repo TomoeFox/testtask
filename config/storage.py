@@ -1,9 +1,10 @@
-from pydantic.config import BaseConfig
-from pydantic import FilePath
+from pydantic import BaseSettings
+from pydantic import FilePath, DirectoryPath
 
 
-class DataStorage(BaseConfig):
-    storage_url: FilePath
+class DataStorage(BaseSettings):
+    csv_storage_url: FilePath
+    file_storage_url: DirectoryPath
 
 
 storage_conf = DataStorage()

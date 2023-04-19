@@ -5,6 +5,9 @@ from . import DataStorageInterface
 
 class CSVDataStorage(DataStorageInterface):
 
+    def __init__(self):
+        super().__init__("csv_storage_url")
+
     def save(self, data: list):
         with open(self.url, "r+") as file:
             reader = DictReader(file)

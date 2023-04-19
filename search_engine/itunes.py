@@ -22,6 +22,11 @@ class ItunesEntityTypes:
     SONG: str = "song"
 
 
+class ItunesAttributeTypes:
+
+    ALBUM_TERM = "albumTerm"
+
+
 class ItunesSearchElement(SearchElementInterface):
 
     MEDIA_TYPES = [ItunesMediaTypes.ALL, ItunesMediaTypes.EBOOK, ItunesMediaTypes.MUSIC, ItunesMediaTypes.MUSIC_VIDEO,
@@ -32,17 +37,24 @@ class ItunesSearchElement(SearchElementInterface):
         ItunesMediaTypes.MUSIC: [ItunesEntityTypes.SONG]
     }
 
+    ATTRIBUTE_TYPES = {
+        ItunesEntityTypes.SONG: [ItunesAttributeTypes.ALBUM_TERM]
+    }
+
     def prepare_request(self) -> dict:
         params = {}
         if self.search_media_type:
             params["media"] = self.search_media_type or ItunesMediaTypes.ALL
         if self.search_entity_type:
             params["entity"] = self.search_entity_type
-        params["term"] = f"{self.artist_name} {self.album_name}"
+        params["term"] = f"{self.artist_name} {self.value}"
         return {"params": params}
 
 
 class ItunesSearchEngine(SearchEngineInterface):
+
+    def __init__(self):
+        super().__init__("itunes_search_url")
 
     def handle_result(self, result: str):
         json_data = json.loads(result)

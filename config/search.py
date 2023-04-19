@@ -1,10 +1,11 @@
-from pydantic.config import BaseConfig
+from pydantic import BaseSettings
 from pydantic import HttpUrl
 
 
-class SearchEngine(BaseConfig):
+class SearchEngine(BaseSettings):
 
-    search_url: HttpUrl
+    itunes_search_url: HttpUrl
+    chordify_search_url: HttpUrl
 
 
 search_conf = SearchEngine()
