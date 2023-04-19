@@ -1,0 +1,1 @@
+ 'artistId', 'collectionId', 'trackId', 'artistName', 'collectionName', 'trackName', 'collectionCensoredName', 'trackCensoredName', 'artistViewUrl', 'collectionViewUrl', 'trackViewUrl', 'previewUrl', 'collectionPrice', 'trackPrice', 'releaseDate', 'discCount', 'discNumber', 'trackCount', 'trackNumber', 'trackTimeMillis', 'country', 'currency', 'primaryGenreName'
